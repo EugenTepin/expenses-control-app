@@ -1,9 +1,8 @@
 import React from 'react';
-import './App.css';
-//import data from './data';
+import './assets/css/App.css';
 import CategoryList from './сomponents/CategoryList';
 import CategoryCharts from './сomponents/CategoryCharts';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 
 class App extends React.Component {
   render() {
@@ -12,12 +11,12 @@ class App extends React.Component {
         <div className="row">
           <div className="col-3">
             <nav>
-              <ul>
-                <li>
-                  <Link to="/">List</Link>
+              <ul className="nav flex-column nav-pills">
+                <li className="nav-item">
+                  <NavLink exact className="nav-link" to="/">List</NavLink >
                 </li>
-                <li>
-                  <Link to="/charts/">Charts</Link>
+                <li className="nav-item">
+                  <NavLink exact className="nav-link" to="/charts/">Charts</NavLink >
                 </li>
               </ul>
             </nav>

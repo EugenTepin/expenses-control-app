@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-import expensesControlApp from './reducer'
-import './index.css';
+import expensesControlApp from './reducers'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 

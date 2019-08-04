@@ -2,25 +2,14 @@ import React from 'react';
 import AddItemForm from './AddItemForm';
 
 class List extends React.Component {
-    constructor(props) {
-        super(props);
-        this.deleteHandler = this.deleteHandler.bind(this);
-    }
-    /*
-    if (window.confirm("Are you sure?")) { 
-    
-  }
-    */
-    deleteHandler(id) {
+    deleteHandler = (id) => {
         if (window.confirm("Are you sure?")) {
             this.props.deleteOnClick(id);
         }
     }
     render() {
         // move up into props
-        const headersList = ['id', 'category', 'expenses', 'incomes'];
-
-
+        const headersList = ['category', 'expenses', 'incomes'];
         const items = this.props.items.map((elem) => {
             let columns = headersList.map((name) => {
                 let value = elem[name] || '';

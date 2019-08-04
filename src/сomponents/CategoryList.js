@@ -10,8 +10,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addOnClick: (id, category, expenses, incomes) => {
-            dispatch(addItem(id, category, expenses, incomes));
+        addOnClick: (item) => {
+            dispatch(addItem(item));
         },
         deleteOnClick: (id) => {
             dispatch(deleteItem(id))

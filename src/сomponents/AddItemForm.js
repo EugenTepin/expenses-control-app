@@ -8,44 +8,41 @@ class AddItemForm extends React.Component {
             expenses: '',
             incomes: ''
         };
-
-        this.handleCategoryChange = this.handleCategoryChange.bind(this);
-        this.handleExpensesChange = this.handleExpensesChange.bind(this);
-        this.handleIncomesChange = this.handleIncomesChange.bind(this);
-
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleCategoryChange(event) {
-        this.setState({ category: event.target.value });
+    isSateValid = () => {
+        let state = this.state;
+        return Object.keys(state).every((prop) => { return state[prop] !== ''; });
     }
 
-    handleExpensesChange(event) {
-        let value = event.target.value;
-        this.setState((state, props) => {
-            let newSate = parseFloat(value);
-            if (Number.isNaN(newSate) || newSate < 0) {
-                newSate = state.expenses;
-            }
-            return { expenses: newSate };
+    isValidNumberInputValue = (value) => {
+        let numValue = parseFloat(value);
+        return !(Number.isNaN(numValue) || numValue < 0);
+    }
+
+    handleCategoryChange = (e) => {
+        this.setState({ category: e.target.value });
+    }
+
+    handleExpensesChange = (e) => {
+        let value = e.target.value;
+        this.setState((state) => {
+            return (this.isValidNumberInputValue(value)) ? { expenses: parseFloat(value) } : { expenses: state.expenses };
         });
     }
 
-    handleIncomesChange(event) {
-        let value = event.target.value;
-        this.setState((state, props) => {
-            let newSate = parseFloat(value);
-            if (Number.isNaN(newSate) || newSate < 0) {
-                newSate = state.incomes;
-            }
-            return { incomes: newSate };
+    handleIncomesChange = (e) => {
+        let value = e.target.value;
+        this.setState((state) => {
+            return (this.isValidNumberInputValue(value)) ? { incomes: parseFloat(value) } : { incomes: state.incomes };
         });
     }
 
-    handleSubmit(event) {
-        console.log(this.state);
-        this.props.add(Date.now(), this.state.category, this.state.expenses, this.state.incomes);
-        event.preventDefault();
+    handleSubmit = (e) => {
+        if (this.isSateValid()) {
+            this.props.add({ ...this.state, id: Date.now() });
+        }
+        e.preventDefault();
     }
 
     render() {

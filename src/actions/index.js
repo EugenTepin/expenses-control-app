@@ -1,12 +1,9 @@
 export const ADD_NEW_ITEM = 'ADD_NEW_ITEM';
 export const DELETE_ITEM = 'DELETE_ITEM';
 
-export function addItem(id, category, expenses, incomes) {
+export function addItem(item) {
     return {
-        id,
-        category,
-        expenses,
-        incomes,
+        item,
         type: ADD_NEW_ITEM
     }
 }
