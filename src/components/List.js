@@ -1,5 +1,5 @@
 import React from 'react';
-import AddItemForm from './AddItemForm';
+import AddItemForm from 'components/AddItemForm';
 
 class List extends React.Component {
     deleteHandler = (id) => {

@@ -1,5 +1,5 @@
-import { ADD_NEW_ITEM, DELETE_ITEM } from '../actions'
-import data from '../data';
+import { ADD_NEW_ITEM, DELETE_ITEM } from 'actions'
+import data from 'data';
 
 const initialState = {
     items: data,

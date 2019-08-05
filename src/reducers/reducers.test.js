@@ -1,6 +1,6 @@
-import expensesControlApp from '../reducers';
-import { addItem, deleteItem } from '../actions';
-import data from '../data';
+import expensesControlApp from 'reducers';
+import { addItem, deleteItem } from 'actions';
+import data from 'data';
 const initialState = { items: data };
 
 it('Reducer reterns correct initial state', () => {

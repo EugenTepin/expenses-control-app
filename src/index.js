@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-import expensesControlApp from './reducers'
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import expensesControlApp from 'reducers'
+import App from 'App';
+import * as serviceWorker from 'serviceWorker';
 
 const store = createStore(expensesControlApp);
 

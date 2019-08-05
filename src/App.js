@@ -1,7 +1,7 @@
 import React from 'react';
-import './assets/css/App.css';
-import CategoryList from './сomponents/CategoryList';
-import CategoryCharts from './сomponents/CategoryCharts';
+import 'assets/css/App.css';
+import CategoryList from 'components/CategoryList';
+import CategoryCharts from 'components/CategoryCharts';
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 
 class App extends React.Component {

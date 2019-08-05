@@ -25,19 +25,26 @@ class AddItemForm extends React.Component {
         this.setState({ category: e.target.value });
     }
 
-    handleExpensesChange = (e) => {
+    handleNumericFieldChange = (prop, e) => {
         let value = e.target.value;
         this.setState((state) => {
-            return (this.isValidNumberInputValue(value)) ? { expenses: parseFloat(value) } : { expenses: state.expenses };
+            return (this.isValidNumberInputValue(value)) ? { [prop]: parseFloat(value) } : { [prop]: state[prop] };
         });
-    }
+    };
 
-    handleIncomesChange = (e) => {
-        let value = e.target.value;
-        this.setState((state) => {
-            return (this.isValidNumberInputValue(value)) ? { incomes: parseFloat(value) } : { incomes: state.incomes };
-        });
-    }
+    // handleExpensesChange = (e) => {
+    //     let value = e.target.value;
+    //     this.setState((state) => {
+    //         return (this.isValidNumberInputValue(value)) ? { expenses: parseFloat(value) } : { expenses: state.expenses };
+    //     });
+    // }
+
+    // handleIncomesChange = (e) => {
+    //     let value = e.target.value;
+    //     this.setState((state) => {
+    //         return (this.isValidNumberInputValue(value)) ? { incomes: parseFloat(value) } : { incomes: state.incomes };
+    //     });
+    // }
 
     handleSubmit = (e) => {
         if (this.isSateValid()) {
@@ -55,10 +62,10 @@ class AddItemForm extends React.Component {
                         <input type="text" name="category" className="form-control" placeholder="Category" value={this.state.category} onChange={this.handleCategoryChange} />
                     </div>
                     <div className="col">
-                        <input type="text" name="expenses" className="form-control" placeholder="Expenses" value={this.state.expenses} onChange={this.handleExpensesChange} />
+                        <input type="text" name="expenses" className="form-control" placeholder="Expenses" value={this.state.expenses} onChange={(e) => { this.handleNumericFieldChange('expenses', e) }} />
                     </div>
                     <div className="col">
-                        <input type="text" name="incomes" className="form-control" placeholder="Incomes" value={this.state.incomes} onChange={this.handleIncomesChange} />
+                        <input type="text" name="incomes" className="form-control" placeholder="Incomes" value={this.state.incomes} onChange={(e) => { this.handleNumericFieldChange('incomes', e) }} />
 
                     </div>
                     <div className="col">
