@@ -3,11 +3,12 @@ import React from 'react';
 class AddItemForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
+        this.plainState = {
             category: '',
             expenses: '',
             incomes: ''
         };
+        this.state = this.plainState;
     }
 
     isSateValid = () => {
@@ -41,6 +42,7 @@ class AddItemForm extends React.Component {
     handleSubmit = (e) => {
         if (this.isSateValid()) {
             this.props.add({ ...this.state, id: Date.now() });
+            this.setState(this.plainState);
         }
         e.preventDefault();
     }
@@ -50,17 +52,17 @@ class AddItemForm extends React.Component {
             <form className="pb-4" onSubmit={this.handleSubmit}>
                 <div className="row">
                     <div className="col">
-                        <input type="text" className="form-control" placeholder="Category" value={this.state.category} onChange={this.handleCategoryChange} />
+                        <input type="text" name="category" className="form-control" placeholder="Category" value={this.state.category} onChange={this.handleCategoryChange} />
                     </div>
                     <div className="col">
-                        <input type="text" className="form-control" placeholder="Expenses" value={this.state.expenses} onChange={this.handleExpensesChange} />
+                        <input type="text" name="expenses" className="form-control" placeholder="Expenses" value={this.state.expenses} onChange={this.handleExpensesChange} />
                     </div>
                     <div className="col">
-                        <input type="text" className="form-control" placeholder="Incomes" value={this.state.incomes} onChange={this.handleIncomesChange} />
+                        <input type="text" name="incomes" className="form-control" placeholder="Incomes" value={this.state.incomes} onChange={this.handleIncomesChange} />
 
                     </div>
                     <div className="col">
-                        <input className="btn btn-primary" type="submit" value="Add" />
+                        <input name="add" className="btn btn-primary" type="submit" value="Add" />
                     </div>
                 </div>
 
